@@ -3,6 +3,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var react = require('react');
 var formik = require('formik');
 var scrollToElement = _interopDefault(require('scroll-to-element'));
+var flatten = _interopDefault(require('flat'));
 
 function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
@@ -26,7 +27,7 @@ function (_Component) {
         isSubmitting = _prevProps$formik.isSubmitting,
         isValidating = _prevProps$formik.isValidating,
         errors = _prevProps$formik.errors;
-    var keys = Object.keys(errors);
+    var keys = Object.keys(flatten(errors));
 
     if (keys.length > 0 && isSubmitting && !isValidating) {
       var selector = "[data-error-key=\"" + keys[0] + "\"]";
